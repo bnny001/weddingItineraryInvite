@@ -5,6 +5,9 @@
 //  Times are India Standard Time (+05:30).
 // ─────────────────────────────────────────────────────────────
 
+// The address printed in the room QR codes. Double-check spelling before printing!
+export const siteUrl = "https://wedding-itinerary-invite.vercel.app";
+
 export const couple = {
   bride: "Komal",
   groom: "Yash",

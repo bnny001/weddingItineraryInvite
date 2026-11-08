@@ -43,12 +43,12 @@ export default function Dining({ dayId }) {
 
   return (
     <section ref={root} className="px-4 pt-4">
-      <p className="text-center font-serif text-lg italic text-accent">
+      <p className="text-center font-serif text-base italic text-accent">
         {day.weekday}, {day.day}
         <sup>{day.sup}</sup> {day.month}
       </p>
 
-      <div className="mt-4 space-y-3">
+      <div className="mt-3 space-y-2.5">
         {list.map((m, i) => {
           const isOpen = open === i;
           const v = venues[m.venue];
@@ -56,17 +56,17 @@ export default function Dining({ dayId }) {
             <article
               key={`${dayId}-${i}`}
               data-menu={i}
-              className={`m-card overflow-hidden rounded-[26px] bg-white ring-1 transition-shadow duration-300 ${
+              className={`m-card overflow-hidden rounded-[20px] bg-white ring-1 transition-shadow duration-300 ${
                 isOpen ? "ring-sky-2 shadow-[0_18px_40px_-24px_rgba(30,47,79,0.6)]" : "ring-sky"
               }`}
             >
-              <button onClick={() => toggle(i)} className="flex w-full items-center gap-3 px-4 py-4 text-left" aria-expanded={isOpen}>
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-sky text-primary">
-                  <Icon name={mealIcon(m.meal)} className="h-6 w-6" />
+              <button onClick={() => toggle(i)} className="flex w-full items-center gap-3 px-3 py-3 text-left" aria-expanded={isOpen}>
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-sky text-primary">
+                  <Icon name={mealIcon(m.meal)} className="h-5 w-5" />
                 </span>
                 <span className="min-w-0 flex-1">
-                  <span className="block font-serif text-[21px] font-semibold leading-tight text-ink">{m.meal}</span>
-                  <span className="label block text-[9px] text-mauve">
+                  <span className="block font-serif text-[17px] font-semibold leading-tight text-ink">{m.meal}</span>
+                  <span className="label block text-[8px] text-mauve">
                     {m.time} · {v.name}
                   </span>
                 </span>
@@ -77,7 +77,7 @@ export default function Dining({ dayId }) {
 
               <div className="acc" data-open={isOpen}>
                 <div>
-                  <div className="border-t border-dashed border-sky-2 px-5 pb-5 pt-3">
+                  <div className="border-t border-dashed border-sky-2 px-4 pb-4 pt-3">
                     {m.tags?.length > 0 && (
                       <div className="mb-3 flex gap-2">
                         {m.tags.map((t) => (
@@ -96,7 +96,7 @@ export default function Dining({ dayId }) {
                         </p>
                         <ul>
                           {s.items.map((it) => (
-                            <li key={it} className="m-dish flex items-baseline gap-2 py-0.5 font-serif text-[17px] leading-snug text-ink/90">
+                            <li key={it} className="m-dish flex items-baseline gap-2 py-0.5 font-serif text-[15px] leading-snug text-ink/90">
                               <span className="h-1 w-1 shrink-0 translate-y-[-3px] rounded-full bg-accent" />
                               {it}
                             </li>

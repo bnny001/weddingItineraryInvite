@@ -26,24 +26,24 @@ export default function ContactSheet({ open, onClose }) {
         }`}
       >
         <div className="mx-auto mb-4 h-1 w-10 rounded-full bg-gold/40" />
-        <h2 className="text-center font-serif text-[28px] font-semibold text-ink">For your convenience</h2>
-        <p className="mb-4 text-center font-serif text-base italic text-accent">We&apos;re here for anything you need</p>
+        <h2 className="text-center font-serif text-[23px] font-semibold text-ink">For your convenience</h2>
+        <p className="mb-3 text-center font-serif text-[14px] italic text-accent">We&apos;re here for anything you need</p>
 
         <ul className="space-y-2">
           {contacts.map((c) => (
             <li key={c.label}>
               <Row
                 href={c.short ? undefined : `tel:${c.phone.replace(/\s/g, "")}`}
-                className="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 ring-1 ring-sky-2 transition active:scale-[0.98]"
+                className="flex items-center gap-3 rounded-2xl bg-white px-3 py-2.5 ring-1 ring-sky-2 transition active:scale-[0.98]"
               >
-                <span className="grid h-10 w-10 place-items-center rounded-2xl bg-sky text-primary">
+                <span className="grid h-9 w-9 place-items-center rounded-xl bg-sky text-primary">
                   <Icon name="phone" className="h-[18px] w-[18px]" />
                 </span>
                 <span className="min-w-0 flex-1">
-                  <span className="block font-serif text-[18px] font-semibold leading-tight text-ink">{c.label}</span>
-                  <span className="block text-[11.5px] text-mauve">{c.sub}</span>
+                  <span className="block font-serif text-[15.5px] font-semibold leading-tight text-ink">{c.label}</span>
+                  <span className="block text-[10.5px] text-mauve">{c.sub}</span>
                 </span>
-                <span className="text-right text-[13px] font-semibold tabular-nums text-mauve">
+                <span className="text-right text-[11.5px] font-semibold tabular-nums text-mauve">
                   {c.short ? `Dial ${c.phone}` : c.phone}
                 </span>
               </Row>

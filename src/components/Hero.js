@@ -77,12 +77,12 @@ export default function Hero({ tab, ready }) {
           </div>
         </div>
       ) : (
-        <div className="relative px-6 pb-6 pt-14 text-center">
-          <p className="h-item font-script text-[26px] leading-none text-accent">
+        <div className="relative px-6 pb-4 pt-10 text-center">
+          <p className="h-item font-script text-[22px] leading-none text-accent">
             {couple.groom} & {couple.bride}
           </p>
-          <h1 className="h-item mt-2 font-serif text-[44px] font-semibold leading-none text-ink">{titles[tab].title}</h1>
-          <p className="h-item mt-2 font-serif text-[17px] italic text-mauve">{titles[tab].sub}</p>
+          <h1 className="h-item mt-1 font-serif text-[34px] font-semibold leading-none text-ink">{titles[tab].title}</h1>
+          <p className="h-item mt-1 font-serif text-[15px] italic text-mauve">{titles[tab].sub}</p>
           <Divider className="h-item mt-4" />
         </div>
       )}

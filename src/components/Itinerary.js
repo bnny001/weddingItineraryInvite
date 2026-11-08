@@ -54,14 +54,14 @@ export default function Itinerary({ dayId, live, ready, onMenu }) {
       <LiveBanner live={live} />
 
       {/* Day heading */}
-      <div className="mt-8 text-center">
+      <div className="mt-6 text-center">
         <p className="d-head flex items-center justify-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-accent">
           <span className="h-px w-8 bg-accent/40" />
           Day {String(dayIndex + 1).padStart(2, "0")} · {day.day} {day.month.slice(0, 3)}
           <span className="h-px w-8 bg-accent/40" />
         </p>
-        <h2 className="d-head mt-2 font-serif text-[34px] font-semibold leading-tight text-ink">{day.title}</h2>
-        <p className="d-head mx-auto mt-3 inline-flex max-w-[330px] items-start gap-2 rounded-2xl bg-mist/70 px-4 py-2 text-left text-[12px] leading-snug text-ink/80">
+        <h2 className="d-head mt-1 font-serif text-[26px] font-semibold leading-tight text-ink">{day.title}</h2>
+        <p className="d-head mx-auto mt-3 inline-flex max-w-[330px] items-start gap-2 rounded-xl bg-mist/70 px-3 py-1.5 text-left text-[11px] leading-snug text-ink/80">
           <Icon name="hanger" className="mt-px h-4 w-4 shrink-0 text-primary" />
           <span>
             <b className="font-semibold text-primary">Dress theme · </b>
@@ -71,9 +71,9 @@ export default function Itinerary({ dayId, live, ready, onMenu }) {
       </div>
 
       {/* Timeline */}
-      <ol className="t-list relative mt-8 pl-7">
-        <span className="absolute bottom-8 left-[9px] top-8 w-[1.5px] rounded bg-sky-2/70" aria-hidden />
-        <span className="t-progress absolute bottom-8 left-[9px] top-8 w-[1.5px] origin-top rounded bg-gradient-to-b from-accent via-primary to-accent" aria-hidden />
+      <ol className="t-list relative mt-5 pl-6">
+        <span className="absolute bottom-8 left-[7px] top-8 w-[1.5px] rounded bg-sky-2/70" aria-hidden />
+        <span className="t-progress absolute bottom-8 left-[7px] top-8 w-[1.5px] origin-top rounded bg-gradient-to-b from-accent via-primary to-accent" aria-hidden />
 
         {day.events.map((ev, i) => {
           const key = `${day.id}-${i}`;
@@ -87,10 +87,10 @@ export default function Itinerary({ dayId, live, ready, onMenu }) {
           const toggle = () => setOpen(isOpen ? null : key);
 
           return (
-            <li key={key} className="t-item relative pb-4">
+            <li key={key} className="t-item relative pb-3">
               {/* rail dot */}
               <span
-                className={`t-dot absolute -left-7 top-7 z-10 grid h-[19px] w-[19px] place-items-center rounded-full ${
+                className={`t-dot absolute -left-6 top-6 z-10 grid h-[15px] w-[15px] place-items-center rounded-full ${
                   isLive ? "live-ring bg-primary" : isPast ? "bg-sky-2" : "bg-white ring-[1.5px] ring-accent"
                 }`}
                 aria-hidden
@@ -104,7 +104,7 @@ export default function Itinerary({ dayId, live, ready, onMenu }) {
                 aria-expanded={isOpen}
                 onClick={toggle}
                 onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && (e.preventDefault(), toggle())}
-                className={`t-card cursor-pointer rounded-[26px] bg-white p-4 transition-shadow duration-300 active:scale-[0.985] ${
+                className={`t-card cursor-pointer rounded-[20px] bg-white p-3 transition-shadow duration-300 active:scale-[0.985] ${
                   isLive
                     ? "shadow-[0_18px_40px_-20px_rgba(74,111,165,0.6)] ring-[1.5px] ring-accent/70"
                     : isOpen
@@ -112,18 +112,18 @@ export default function Itinerary({ dayId, live, ready, onMenu }) {
                       : "shadow-[0_10px_26px_-22px_rgba(30,47,79,0.55)] ring-1 ring-sky/90"
                 } ${isPast ? "opacity-60" : ""}`}
               >
-                <div className="flex items-start gap-3.5">
+                <div className="flex items-start gap-3">
                   <span
-                    className={`grid h-12 w-12 shrink-0 place-items-center rounded-2xl ${
+                    className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl ${
                       isLive ? "bg-primary text-white" : "bg-sky text-primary"
                     }`}
                   >
-                    <Icon name={ev.icon} className="h-6 w-6" />
+                    <Icon name={ev.icon} className="h-5 w-5" />
                   </span>
 
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-1.5">
-                      <span className="text-[11px] font-semibold tabular-nums tracking-wide text-primary">
+                      <span className="text-[10px] font-semibold tabular-nums tracking-wide text-primary">
                         {time.hm} {time.ap}
                         {ev.onwards && <span className="font-medium text-mauve"> · onwards</span>}
                       </span>
@@ -137,10 +137,10 @@ export default function Itinerary({ dayId, live, ready, onMenu }) {
                         </span>
                       )}
                     </div>
-                    <h3 className="mt-0.5 font-serif text-[21px] font-semibold leading-[1.15] text-ink">{ev.title}</h3>
-                    {ev.note && <p className="font-serif text-[15px] italic leading-snug text-mauve">{ev.note}</p>}
-                    <p className="mt-1.5 flex items-center gap-1 text-[11.5px] text-ink/70">
-                      <Icon name="pin" className="h-3.5 w-3.5 text-accent" />
+                    <h3 className="font-serif text-[17px] font-semibold leading-[1.15] text-ink">{ev.title}</h3>
+                    {ev.note && <p className="font-serif text-[13.5px] italic leading-snug text-mauve">{ev.note}</p>}
+                    <p className="mt-1 flex items-center gap-1 text-[10.5px] text-ink/70">
+                      <Icon name="pin" className="h-3 w-3 text-accent" />
                       {v.name}
                     </p>
                   </div>
@@ -153,9 +153,9 @@ export default function Itinerary({ dayId, live, ready, onMenu }) {
 
                 <div className="acc" data-open={isOpen}>
                   <div>
-                    <div className="mt-4 space-y-3 border-t border-dashed border-sky-2 pt-4">
+                    <div className="mt-3 space-y-2 border-t border-dashed border-sky-2 pt-3">
                       {ev.dress && (
-                        <p className="flex items-start gap-2 text-[12.5px] leading-snug text-ink/80">
+                        <p className="flex items-start gap-2 text-[11.5px] leading-snug text-ink/80">
                           <Icon name="hanger" className="h-4 w-4 shrink-0 text-primary" />
                           <span>
                             <b className="font-semibold text-ink">Dress code: </b>
@@ -163,7 +163,7 @@ export default function Itinerary({ dayId, live, ready, onMenu }) {
                           </span>
                         </p>
                       )}
-                      <p className="flex items-start gap-2 text-[12.5px] leading-snug text-ink/80">
+                      <p className="flex items-start gap-2 text-[11.5px] leading-snug text-ink/80">
                         <Icon name="pin" className="h-4 w-4 shrink-0 text-primary" />
                         <span>
                           <b className="font-semibold text-ink">Venue: </b>
@@ -176,7 +176,7 @@ export default function Itinerary({ dayId, live, ready, onMenu }) {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-primary px-4 py-2.5 text-[12px] font-semibold text-white shadow-[0_8px_18px_-10px_rgba(74,111,165,0.9)] active:scale-95"
+                          className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-primary px-3 py-2 text-[11px] font-semibold text-white shadow-[0_8px_18px_-10px_rgba(74,111,165,0.9)] active:scale-95"
                         >
                           <Icon name="arrow" className="h-3.5 w-3.5" strokeWidth={2} /> Directions
                         </a>
@@ -186,7 +186,7 @@ export default function Itinerary({ dayId, live, ready, onMenu }) {
                               e.stopPropagation();
                               onMenu(day.id);
                             }}
-                            className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-sky px-4 py-2.5 text-[12px] font-semibold text-primary active:scale-95"
+                            className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-sky px-3 py-2 text-[11px] font-semibold text-primary active:scale-95"
                           >
                             <Icon name="menu" className="h-3.5 w-3.5" strokeWidth={2} /> View menu
                           </button>
@@ -234,18 +234,18 @@ function LiveBanner({ live }) {
     sub = "See you tomorrow";
   }
   return (
-    <div className="relative mt-2 flex items-center gap-4 overflow-hidden rounded-[26px] bg-white p-4 shadow-[0_16px_36px_-22px_rgba(74,111,165,0.7)] ring-1 ring-sky-2">
+    <div className="relative mt-2 flex items-center gap-4 overflow-hidden rounded-[20px] bg-white p-3 shadow-[0_16px_36px_-22px_rgba(74,111,165,0.7)] ring-1 ring-sky-2">
       <span className="pointer-events-none absolute -right-8 -top-10 h-32 w-32 rounded-full bg-sky blur-2xl" aria-hidden />
-      <span className={`relative grid h-14 w-14 shrink-0 place-items-center rounded-full bg-gradient-to-br from-accent to-primary text-white ${pulse ? "live-ring" : ""}`}>
-        <Icon name={icon} className="h-7 w-7" />
+      <span className={`relative grid h-11 w-11 shrink-0 place-items-center rounded-full bg-gradient-to-br from-accent to-primary text-white ${pulse ? "live-ring" : ""}`}>
+        <Icon name={icon} className="h-5 w-5" />
       </span>
       <div className="relative min-w-0">
-        <p className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
+        <p className="flex items-center gap-1.5 text-[9px] font-semibold uppercase tracking-[0.2em] text-accent">
           {pulse && <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />}
           {top}
         </p>
-        <p className="truncate font-serif text-[24px] font-semibold leading-tight text-ink">{main}</p>
-        <p className="truncate text-[11.5px] text-mauve">{sub}</p>
+        <p className="truncate font-serif text-[19px] font-semibold leading-tight text-ink">{main}</p>
+        <p className="truncate text-[10.5px] text-mauve">{sub}</p>
       </div>
     </div>
   );

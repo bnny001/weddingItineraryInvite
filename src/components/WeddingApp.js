@@ -77,8 +77,8 @@ export default function WeddingApp() {
         </main>
 
         <footer className="px-8 pb-6 pt-14 text-center">
-          <p className="font-script text-[34px] leading-tight text-accent">We wish you a pleasant</p>
-          <p className="font-script text-[34px] leading-tight text-accent">& memorable stay</p>
+          <p className="font-script text-[26px] leading-tight text-accent">We wish you a pleasant</p>
+          <p className="font-script text-[26px] leading-tight text-accent">& memorable stay</p>
           <p className="label mt-4 text-[10px] text-primary">#YashKom</p>
         </footer>
       </div>

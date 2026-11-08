@@ -141,3 +141,30 @@ body {
     radial-gradient(70% 50% at 50% 100%, #eef5fd 0%, transparent 70%),
     linear-gradient(180deg, #e3eefb 0%, #f4f8fe 60%, #fff 100%);
 }
+
+/* ── Room QR sticker (/qr) ── */
+.sticker {
+  width: 80mm;
+  height: 120mm;
+  border-radius: 5mm;
+  box-shadow: 0 20px 50px -25px rgb(30 47 79 / 0.5);
+}
+@media print {
+  @page {
+    size: 80mm 120mm;
+    margin: 0;
+  }
+  html, body, .qr-screen {
+    background: #fff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .qr-noprint { display: none !important; }
+  .sticker {
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
